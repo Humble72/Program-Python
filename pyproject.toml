@@ -1,0 +1,21 @@
+[tool.black]
+# Ustawiamy spójną długość linii dla Black
+line-length = 100
+target-version = ["py312"]
+
+[tool.pylint.main]
+# Ignorujemy katalogi z testami i środowiskiem wirtualnym, aby Pylint ich nie oceniał
+ignore = ["tests", "venv", ".venv"]
+
+[tool.pylint.format]
+# Ustawiamy identyczną długość linii dla Pylinta, by nie gryzł się z Blackiem
+max-line-length = 100
+
+[tool.pylint.messages_control]
+# Wyłączamy kilka domyślnych, rygorystycznych ostrzeżeń Pylinta, 
+# które mogłyby sprawiać problemy w prostym projekcie
+disable = [
+    "missing-docstring",      # Brak docstringów (komentarzy do funkcji/modułów)
+    "invalid-name",           # Wymuszanie konkretnych nazw zmiennych
+    "too-few-public-methods"  # Wymaganie minimum metod publicznych w klasach
+]
